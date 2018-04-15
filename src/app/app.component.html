@@ -1,5 +1,21 @@
 <div class="map"
-  leaflet
-  (leafletMapReady)="onMapReady($event)"
-  [leafletOptions]="options"
-  [leafletLayersControl]="layersControl"></div>
+     leaflet
+     (leafletMapReady)="onMapReady($event)"
+     (leafletMoveEnd)="onMoveEnd()"
+     [leafletOptions]="options"
+     [leafletZoomPanOptions]="zoomPanOptions"
+     [leafletZoom]="record.zoom"
+     [leafletCenter]="record.center"
+     [leafletLayers]="markers"
+     [leafletViewOffset]="viewOffset"></div>
+<button type="button"
+        id="autoplay"
+        class="float-right img-btn"
+        [ngClass]="{'btn-on': isAutoPlay, 'btn-off': !isAutoPlay}"
+        (click)="toggleAutoPlay(isAutoPlay)">
+</button>
+<button type="button"
+        id="datasource"
+        class="float-left img-btn"
+        [ngClass]="{'btn-on': isAutoPlay, 'btn-off': !isAutoPlay}">
+</button>

@@ -2,3 +2,85 @@
   height: 100%;
   padding: 0;
 }
+
+.leaflet-popup-photo .leaflet-popup-content-wrapper {
+  padding: 6px;
+  border-radius: 4px;
+}
+
+.leaflet-popup-photo .leaflet-popup-content {
+  margin: 0;
+}
+
+.leaflet-popup-photo img {
+  display: block;
+  width: 100%;
+}
+
+.leaflet-popup-photo p {
+  margin: 5px 0 0 0;
+}
+
+.leaflet-popup-tip-container {
+  display: none;
+}
+
+
+#autoplay {
+  background: transparent url('../assets/icons/btn-koala.png') center;
+  background-size: cover;
+}
+
+#datasource {
+  background: transparent url('../assets/icons/btn-tiger.png') center;
+  background-size: cover;
+  -webkit-transform: scaleX(-1);
+}
+
+.img-btn {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+
+  width: 125px;
+  height: 150px;
+}
+
+.img-btn:focus {
+  outline: 0;
+}
+
+.leaflet-marker-icon {
+  outline: 0;
+}
+
+.float-left {
+  position: fixed;
+  bottom: 21px;
+  left: 25px;
+  z-index: 999;
+}
+
+.float-right {
+  position: fixed;
+  bottom: 21px;
+  right: 25px;
+  z-index: 9999;
+}
+
+.btn-on {
+  -webkit-filter: grayscale(0);
+}
+
+.btn-on:hover {
+  -webkit-filter: drop-shadow(0px 0px 3px #82847A);
+}
+
+.btn-off {
+  -webkit-filter: grayscale(100%);
+}
+
+.btn-off:hover {
+  -webkit-filter: drop-shadow(0px 0px 8px #EDBA3A)
+}

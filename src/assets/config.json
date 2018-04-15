@@ -1,0 +1,30 @@
+{
+  "maps": [
+    {
+      "urlTempalte": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      "options": {
+        "maxZoom": 15,
+        "subdomains": [ "a", "b", "c" ],
+        "attribution": "Open Street Map"
+      }
+    },
+    {
+      "urlTempalte": "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+      "options": {
+        "maxZoom": 20,
+        "subdomains": [ "mt0", "mt1", "mt2", "mt3" ]
+      }
+    }
+  ],
+  "mapId": 0,
+  "zoomPanOptions": {
+    "animate": true,
+    "duration": 1
+  },
+  "record": {
+    "zoom": 5,
+    "center": [25, 3]
+  },
+  "viewOffset": [-450, 200],
+  "template": "<img src=\"{image}\"/>"
+}

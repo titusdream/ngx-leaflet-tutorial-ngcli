@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "title": "The Bronx",
+    "time": "2016-01-02",
+    "center": [
+      25.569338,
+      3.101266
+    ],
+    "zoom": 6.21,
+    "image": "assets/photos/dolphin.jpg",
+    "icon": "assets/icons/koala.png"
+  },
+  {
+    "id": "2",
+    "title": "Brooklyn",
+    "time": "2017-01-02",
+    "center": [
+      43.503834,
+      1.425754
+    ],
+    "zoom": 7.68,
+    "image": "assets/photos/tiger.jpg",
+    "icon": "assets/icons/tiger.png"
+  },
+  {
+    "id": "3",
+    "title": "Manhattan",
+    "time": "2018-01-02",
+    "center": [
+      51.342502,
+      1.969163
+    ],
+    "zoom": 5.5,
+    "image": "assets/photos/koala.jpg",
+    "icon": "assets/icons/koala.png"
+  }
+]
