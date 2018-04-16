@@ -1,7 +1,7 @@
 {
   "maps": [
     {
-      "urlTempalte": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      "urlTemplate": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       "options": {
         "maxZoom": 15,
         "subdomains": [ "a", "b", "c" ],
@@ -9,7 +9,7 @@
       }
     },
     {
-      "urlTempalte": "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+      "urlTemplate": "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
       "options": {
         "maxZoom": 20,
         "subdomains": [ "mt0", "mt1", "mt2", "mt3" ]

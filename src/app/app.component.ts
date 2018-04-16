@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {icon, Layer, Map, marker, Marker, point, PointTuple, popup, tileLayer, Util} from 'leaflet';
+import {icon, Layer, Map, marker, Marker, point, popup, tileLayer, Util} from 'leaflet';
 import {DataService} from './data.service';
 import {ConfigModel, RecordModel} from './app.model';
 import {ConfigService} from './config.service';
@@ -12,8 +12,6 @@ import {ConfigService} from './config.service';
 })
 export class AppComponent implements OnInit {
   config: ConfigModel;
-  options: any;
-  zoomPanOptions: any;
 
   records: RecordModel[];
   markers: Layer[] = [];
@@ -21,39 +19,19 @@ export class AppComponent implements OnInit {
   itMarker: any;
 
   marker: Marker;
+  options: any;
   record: any;
-  viewOffset: PointTuple;
-  template: string;
 
   isAutoPlay: boolean = false;
   timeout: any;
+  isShowMode: boolean = true;
 
   constructor(private appService: DataService, private configService: ConfigService) {
-    const m = tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 15,
-      subdomains: ['a', 'b', 'c'],
-      attribution: 'Open Street Map'
-    });
-    this.options = {layers: [m]};
-    this.zoomPanOptions = {
-      animate: true,
-      duration: 1
-    };
-    this.record = {
-      zoom: 5,
-      center: [25, 3]
-    };
-    this.viewOffset = [-450, 200];
-    this.template = '<img src="{image}"/>';
-
-
     this.initConfig(configService.getConfig());
-
   }
 
   ngOnInit() {
-    this.appService.getRecords('assets/data/show.json')
-        .subscribe(records => this.initData(records));
+    this.fetchData();
   }
 
   initConfig(config: ConfigModel) {
@@ -63,10 +41,7 @@ export class AppComponent implements OnInit {
     this.options = {
       layers: [base],
     };
-    this.zoomPanOptions = config.zoomPanOptions;
     this.record = config.record;
-    this.viewOffset = config.viewOffset;
-    this.template = config.template;
   }
 
   initData(records: RecordModel[]) {
@@ -98,7 +73,7 @@ export class AppComponent implements OnInit {
             closeButton: false
           })
           .setLatLng(loc.center)
-          .setContent(Util.template(this.template, loc));
+          .setContent(Util.template(this.config.template, loc));
 
       const m = marker(loc.center, {
         icon: icon({
@@ -139,8 +114,27 @@ export class AppComponent implements OnInit {
     }
   }
 
+  toggleShowMode(isShowMode: boolean) {
+    this.reset();
+    this.isShowMode = !isShowMode;
+    this.fetchData();
+  }
+
+  fetchData() {
+    const d = this.isShowMode ? 'assets/data/show.json' : 'assets/data/pres.json';
+    this.appService.getRecords(d).subscribe(records => this.initData(records));
+  }
+
+  reset() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
+    this.isAutoPlay = false;
+    this.record = this.config.record;
+    this.markers = [];
+  }
+
   onMapReady(map: Map) {
-    console.log('onMapReady');
   }
 
   onMoveEnd() {

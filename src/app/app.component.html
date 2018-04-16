@@ -3,11 +3,11 @@
      (leafletMapReady)="onMapReady($event)"
      (leafletMoveEnd)="onMoveEnd()"
      [leafletOptions]="options"
-     [leafletZoomPanOptions]="zoomPanOptions"
+     [leafletZoomPanOptions]="config.zoomPanOptions"
      [leafletZoom]="record.zoom"
      [leafletCenter]="record.center"
      [leafletLayers]="markers"
-     [leafletViewOffset]="viewOffset"></div>
+     [leafletViewOffset]="config.viewOffset"></div>
 <button type="button"
         id="autoplay"
         class="float-right img-btn"
@@ -17,5 +17,6 @@
 <button type="button"
         id="datasource"
         class="float-left img-btn"
-        [ngClass]="{'btn-on': isAutoPlay, 'btn-off': !isAutoPlay}">
+        [ngClass]="{'btn-on': !isShowMode, 'btn-off': isShowMode}"
+        (click)="toggleShowMode(isShowMode)">
 </button>
