@@ -4,27 +4,64 @@
 }
 
 .leaflet-popup-photo .leaflet-popup-content-wrapper {
-  padding: 6px;
-  border-radius: 4px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .leaflet-popup-photo .leaflet-popup-content {
   margin: 0;
+  width: 100% !important;
 }
 
-.leaflet-popup-photo img {
+.leaflet-popup-photo .img-ctn {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-origin: content-box;
+  background-position: center;
+}
+
+.leaflet-popup-photo .img-frame {
   display: block;
-  width: 100%;
 }
 
-.leaflet-popup-photo p {
-  margin: 5px 0 0 0;
+.leaflet-popup-photo .caption {
+  position: absolute;
+  text-align: center;
+  font-size: 28px;
+  color: purple;
+}
+
+.leaflet-popup-photo .img-ctn-h {
+  padding: 75px 0 45px 0;
+}
+
+.leaflet-popup-photo .img-ctn-h .img-frame {
+  margin: -75px 0 -45px 0;
+}
+
+.leaflet-popup-photo .img-ctn-h .caption {
+  bottom: 50px;
+  left: 400px;
+}
+
+.leaflet-popup-photo .img-ctn-v {
+  padding: 50px 0 77px 0;
+}
+
+.leaflet-popup-photo .img-ctn-v .img-frame {
+  margin: -50px 0 -77px 0;
+}
+
+.leaflet-popup-photo .img-ctn-v .caption {
+  bottom: 58px;
+  left: 190px;
 }
 
 .leaflet-popup-tip-container {
   display: none;
 }
-
 
 #autoplay {
   background: transparent url('../assets/icons/btn-koala.png') center;

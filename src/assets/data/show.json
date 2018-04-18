@@ -8,11 +8,25 @@
       3.101266
     ],
     "zoom": 6.21,
-    "image": "assets/photos/dolphin.jpg",
-    "icon": "assets/icons/koala.png"
+    "image": "assets/photos/test-h.jpg",
+    "icon": "assets/icons/koala.png",
+    "dir": "h"
   },
   {
     "id": "2",
+    "title": "The Bronx 2",
+    "time": "2016-01-03",
+    "center": [
+      47.512536,
+      1.568487
+    ],
+    "zoom": 5,
+    "image": "assets/photos/test-v.jpg",
+    "icon": "assets/icons/koala.png",
+    "dir": "v"
+  },
+  {
+    "id": "3",
     "title": "Brooklyn",
     "time": "2017-01-02",
     "center": [
@@ -21,10 +35,11 @@
     ],
     "zoom": 7.68,
     "image": "assets/photos/tiger.jpg",
-    "icon": "assets/icons/tiger.png"
+    "icon": "assets/icons/tiger.png",
+    "dir": "h"
   },
   {
-    "id": "3",
+    "id": "4",
     "title": "Manhattan",
     "time": "2018-01-02",
     "center": [
@@ -33,6 +48,7 @@
     ],
     "zoom": 5.5,
     "image": "assets/photos/koala.jpg",
-    "icon": "assets/icons/koala.png"
+    "icon": "assets/icons/koala.png",
+    "dir": "h"
   }
 ]
