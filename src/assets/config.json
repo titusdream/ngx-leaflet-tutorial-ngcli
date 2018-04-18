@@ -26,5 +26,5 @@
     "center": [25, 3]
   },
   "viewOffset": [-450, 200],
-  "template": "<div class='img-ctn img-ctn-h' style='background-image: url(\"{image}\")'><img class='img-frame' src='../assets/photos/frame.png'/><div class='caption'>07-2017 Montagnes</div></div>"
-}
+  "template": "<div class='img-ctn img-ctn-{dir}' style='background-image: url(\"{image}\")'><img class='img-frame' src='../assets/photos/frame-{dir}.png'/><div class='caption'>07-2017 Montagnes</div></div>"
+  }

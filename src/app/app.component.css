@@ -46,6 +46,19 @@
   left: 400px;
 }
 
+.leaflet-popup-photo .img-ctn-v {
+  padding: 50px 0 77px 0;
+}
+
+.leaflet-popup-photo .img-ctn-v .img-frame {
+  margin: -50px 0 -77px 0;
+}
+
+.leaflet-popup-photo .img-ctn-v .caption {
+  bottom: 58px;
+  left: 190px;
+}
+
 .leaflet-popup-tip-container {
   display: none;
 }
