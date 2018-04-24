@@ -84,8 +84,8 @@ export class AppComponent implements OnInit {
       const m = marker(loc.center, {
         icon: icon({
           iconSize: [45, 57],
-          iconUrl: 'assets/icons/' + loc.icon + '.png',
-          shadowUrl: 'assets/icons/shadow.png',
+          iconUrl: 'assets/icons/marker-' + loc.icon + '.png',
+          shadowUrl: 'assets/icons/marker-shadow.png',
           shadowSize: [45, 57],
           shadowAnchor: [20, 25]
         }),
