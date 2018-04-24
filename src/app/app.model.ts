@@ -2,12 +2,18 @@ import {LatLngTuple, PointTuple} from 'leaflet';
 
 export interface RecordModel {
   id: number;
-  title: string;
-  time: string;
   center: LatLngTuple;
   zoom: number;
-  image: string;
   icon: string;
+  title: string;
+  description: string;
+  image: string;
+  dir: string;
+  duration: number;
+  num: number;
+  time: number;
+  side: string;
+  pos: string;
 }
 
 export interface MapModel {
@@ -32,4 +38,11 @@ export interface ConfigModel {
   };
   viewOffset: PointTuple;
   template: string;
+  random: boolean;
+}
+
+export interface AudioModel {
+  id: number;
+  title: string;
+  url: string;
 }

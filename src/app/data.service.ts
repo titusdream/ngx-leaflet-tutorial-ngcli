@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {RecordModel} from './app.model';
 
 @Injectable()
-export class DataService {
+export class PhotoService {
 
   constructor(private http: HttpClient) { }
 

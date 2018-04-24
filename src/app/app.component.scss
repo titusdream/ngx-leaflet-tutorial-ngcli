@@ -1,0 +1,292 @@
+@import '../sass/variables';
+
+.map {
+  height: 100%;
+  padding: 0;
+}
+
+.leaflet-popup-photo {
+
+  .leaflet-popup-content-wrapper {
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .leaflet-popup-content {
+    margin: 0;
+    width: 100% !important;
+  }
+}
+
+.leaflet-popup-tip-container {
+  display: none;
+}
+
+.img-ctn {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-ctn-h {
+  width: -webkit-calc(700px * #{$scale_photo});
+  height: -webkit-calc(467px * #{$scale_photo});
+}
+
+.img-ctn-v {
+  width: -webkit-calc(467px * #{$scale_photo});
+  height: -webkit-calc(700px * #{$scale_photo});
+}
+
+.caption {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: -4%;
+  font-size: -webkit-calc(20px * #{$scale_photo});
+  color: darkslategrey;
+}
+
+.description {
+  font:  -webkit-calc(50px * #{$scale_photo}) 'yr';
+  letter-spacing: -10px;
+  color: #FBD603;
+}
+
+%img-ctn-before {
+  content: '';
+
+  position: absolute;
+  width: calc(100% * (var(--bg-anim-num) + 1));
+  height: 100%;
+  z-index: -1;
+
+  background: var(--bg-image) no-repeat center;
+  background-size: contain;
+  animation: var(--bg-anim-type) var(--bg-anim-time) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.img-ctn-h:before {
+  @extend %img-ctn-before;
+}
+
+.img-ctn-v:before {
+  @extend %img-ctn-before;
+}
+
+%img-frame {
+  position: absolute;
+}
+
+.img-frame-v {
+  @extend %img-frame;
+  width: 125%;
+  //left: -webkit-calc(-75px * #{$scale_photo});
+  //top: -webkit-calc(-60px * #{$scale_photo});
+  left: -15%;
+  top: -7.5%;
+}
+
+.img-frame-h {
+  @extend %img-frame;
+  width: 118%;
+  //left: -webkit-calc(-75px * #{$scale_photo});
+  //top: -webkit-calc(-60px * #{$scale_photo});
+  left: -9%;
+  top: -12%;
+}
+
+
+// 1pic, 1x width
+@keyframes slide0 {
+  0%, 100% {
+    transform: translateX(0);
+  }
+}
+
+// 2pic, 3x width
+@keyframes slide2 {
+  0%, 42% {
+    transform: translateX(0);
+  }
+  46%, 92% {
+    transform: translateX(-33.3%);
+  }
+  96%, 100% {
+    transform: translateX(-66.7%);
+  }
+}
+
+// 3pic, 4x width
+@keyframes slide3 {
+  0%, 25% {
+    transform: translateX(0);
+  }
+  29%, 58% {
+    transform: translateX(-25%);
+  }
+  62%, 92% {
+    transform: translateX(-50%);
+  }
+  96%, 100% {
+    transform: translateX(-75%);
+  }
+}
+
+// 4pic, 5x width
+@keyframes slide4 {
+  0%, 17% {
+    transform: translateX(0);
+  }
+  21%, 42% {
+    transform: translateX(-20%);
+  }
+  46%, 67% {
+    transform: translateX(-40%);
+  }
+  71%, 92% {
+    transform: translateX(-60%);
+  }
+  96%, 100% {
+    transform: translateX(-80%);
+  }
+}
+
+
+.slide-in {
+  position: absolute;
+  overflow: hidden; /* to prevent scrollbar appearing */
+}
+
+.from-left {
+  left: 0;
+
+  .slide-in-content {
+    animation: slidefromleft .5s cubic-bezier(0, 1, 0.5, 1) forwards;
+    animation-delay: 1s;
+  }
+}
+
+.from-right {
+  right: 0;
+
+  .slide-in-content {
+    animation: slidefromright .5s cubic-bezier(0, 1, 0.5, 1) forwards;
+    animation-delay: 1s;
+  }
+}
+
+.slide-in-content {
+  background: rgba(#000000, 0.3);
+  opacity: 0;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+@keyframes slidefromleft {
+  from { opacity: 0; transform: translateX(-100%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slidefromright {
+  from { opacity: 0; transform: translateX(100%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.pos-top {
+  //top: -webkit-calc(85px * #{$scale_photo});
+  top: 15%;
+}
+
+.pos-middle {
+  //top: -webkit-calc(320px * #{$scale_photo});
+  top: 65%;
+}
+
+.pos-bottom {
+  //top: -webkit-calc(570px * #{$scale_photo});
+  top: 80%;
+}
+
+
+
+
+#autoplay {
+  background: transparent url('../assets/icons/btn-koala.png') center;
+  background-size: cover;
+  -webkit-transform: scale($scale_btn);
+}
+
+#datasource {
+  background: transparent url('../assets/icons/btn-tiger.png') center;
+  background-size: cover;
+  -webkit-transform: scale(-$scale_btn, $scale_btn);
+}
+
+.img-btn {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+
+  width: 100px;
+  height: 120px;
+}
+
+.img-btn:focus {
+  outline: 0;
+}
+
+.leaflet-marker-icon {
+  outline: 0;
+}
+
+.float-left {
+  position: fixed;
+  bottom: 21px;
+  left: 25px;
+  z-index: 999;
+}
+
+.float-right {
+  position: fixed;
+  bottom: 21px;
+  right: 25px;
+  z-index: 9999;
+}
+
+.btn-on {
+  -webkit-filter: grayscale(0);
+}
+
+.btn-on:hover {
+  -webkit-filter: drop-shadow(0px 0px 3px #82847A);
+}
+
+.btn-off {
+  -webkit-filter: grayscale(100%);
+}
+
+.btn-off:hover {
+  -webkit-filter: drop-shadow(0px 0px 8px #EDBA3A)
+}
+
+//.description {
+  ///*text-shadow: 3px 3px 5px #95a300;*/
+  //color: #ebfc2f;
+  //transform: rotate(0deg);
+  ///*-webkit-text-stroke: 1px #4bad00;*/
+  //background-image: -webkit-gradient(linear, left top, right bottom, from(#ebfc2f), to(#a0fc5a));
+  //-webkit-background-clip: text;
+  //-webkit-text-fill-color: transparent;
+  //-webkit-filter: drop-shadow(3px 3px 5px #95a300);
+  //animation: fadein 2s ease-out forwards;
+//}
+
+//@keyframes fadein {
+//  from { opacity: 0; left: 20px; transform: scale(0.9)}
+//  to   { opacity: 1; left: 120px;}
+//}
+

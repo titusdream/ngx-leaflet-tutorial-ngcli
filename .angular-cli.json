@@ -9,10 +9,11 @@
       "outDir": "dist",
       "assets": [
         {
-          "glob": "**/*",
-          "input": "../node_modules/leaflet/dist/images",
-          "output": "leaflet/"
-        },
+  "glob": "**/*",
+  "input": "../node_modules/leaflet/dist/images",
+  "output": "leaflet/",
+  "allowOutsideOutDir": false
+},
         "assets",
         "favicon.ico"
       ],
@@ -24,7 +25,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
+        "sass/styles.scss",
         "../node_modules/leaflet/dist/leaflet.css"
       ],
       "scripts": [],
@@ -60,7 +61,8 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "component": {}
+    "styleExt": "scss",
+    "component": {
+    }
   }
 }

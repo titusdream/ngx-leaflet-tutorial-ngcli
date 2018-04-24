@@ -5,8 +5,10 @@ import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 
 import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import {DataService} from './data.service';
+import {PhotoService} from './data.service';
 import {ConfigService} from './config.service';
+import {MusicModule} from './music/music.module';
+import {MusicService} from './music/music.service';
 
 @NgModule({
   declarations: [
@@ -15,9 +17,10 @@ import {ConfigService} from './config.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    LeafletModule.forRoot()
+    LeafletModule.forRoot(),
+    MusicModule,
   ],
-  providers: [DataService, ConfigService, {
+  providers: [PhotoService, MusicService, ConfigService, {
     provide: APP_INITIALIZER,
     useFactory: ConfigLoader,
     deps: [ConfigService],

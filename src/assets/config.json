@@ -26,5 +26,6 @@
     "center": [25, 3]
   },
   "viewOffset": [-450, 200],
-  "template": "<img src=\"{image}\"/>"
+  "template": "<div><div class='img-ctn img-ctn-{dir}' style='--bg-image: url(\"assets/photos/{image}\"); --bg-anim-num: {num}; --bg-anim-type: slide{num}; --bg-anim-time: {time}s'><div class='slide-in from-{side} pos-{pos}'><div class='slide-in-content'><p class='description'>{description}</p></div></div></div><img class='img-frame-{dir}' src='../assets/icons/frame-{dir}.svg'/><div class='caption'>{title}</div></div>",
+  "random": false
 }

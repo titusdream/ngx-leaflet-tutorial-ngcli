@@ -1,13 +1,14 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {icon, Layer, Map, marker, Marker, point, popup, tileLayer, Util} from 'leaflet';
-import {DataService} from './data.service';
+import {PhotoService} from './data.service';
 import {ConfigModel, RecordModel} from './app.model';
 import {ConfigService} from './config.service';
+import {MusicService} from './music/music.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
@@ -26,12 +27,15 @@ export class AppComponent implements OnInit {
   timeout: any;
   isShowMode: boolean = true;
 
-  constructor(private appService: DataService, private configService: ConfigService) {
+  progress: number;
+
+  constructor(private configService: ConfigService, private photoService: PhotoService, private musicService: MusicService) {
     this.initConfig(configService.getConfig());
   }
 
   ngOnInit() {
-    this.fetchData();
+    this.fetchPhoto();
+    this.fetchMusic();
   }
 
   initConfig(config: ConfigModel) {
@@ -42,9 +46,11 @@ export class AppComponent implements OnInit {
       layers: [base],
     };
     this.record = config.record;
+    this.musicService.random = this.config.random;
+    this.musicService.progress.subscribe(progress => this.progress = progress);
   }
 
-  initData(records: RecordModel[]) {
+  initPhoto(records: RecordModel[]) {
     this.records = records;
     this.addMarkers();
     this.itRecord = this.makeIterator(this.records);
@@ -67,7 +73,7 @@ export class AppComponent implements OnInit {
     this.records.map(loc => {
       const p = popup(
           {
-            offset: point(400, 0),
+            offset: point(450, 50),
             className: 'leaflet-popup-photo',
             minWidth: 600,
             closeButton: false
@@ -78,7 +84,7 @@ export class AppComponent implements OnInit {
       const m = marker(loc.center, {
         icon: icon({
           iconSize: [45, 57],
-          iconUrl: loc.icon,
+          iconUrl: 'assets/icons/' + loc.icon + '.png',
           shadowUrl: 'assets/icons/shadow.png',
           shadowSize: [45, 57],
           shadowAnchor: [20, 25]
@@ -94,8 +100,10 @@ export class AppComponent implements OnInit {
     this.isAutoPlay = !isAutoPlay;
     if (this.isAutoPlay) {
       this.playback();
+      this.musicService.play();
     } else {
       clearTimeout(this.timeout);
+      this.musicService.pause();
     }
   }
 
@@ -110,19 +118,25 @@ export class AppComponent implements OnInit {
     if (this.isAutoPlay) {
       this.timeout = setTimeout(() => {
         this.playback();
-      }, 4000);
+      }, this.record.duration * 1000);
     }
   }
 
   toggleShowMode(isShowMode: boolean) {
     this.reset();
     this.isShowMode = !isShowMode;
-    this.fetchData();
+    this.fetchPhoto();
+    this.fetchMusic();
   }
 
-  fetchData() {
+  fetchPhoto() {
     const d = this.isShowMode ? 'assets/data/show.json' : 'assets/data/pres.json';
-    this.appService.getRecords(d).subscribe(records => this.initData(records));
+    this.photoService.getRecords(d).subscribe(records => this.initPhoto(records));
+  }
+
+  fetchMusic() {
+    const d = this.isShowMode ? 'assets/data/show-music.json' : 'assets/data/pres-music.json';
+    this.musicService.getTracks(d);
   }
 
   reset() {

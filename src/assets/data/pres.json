@@ -1,38 +1,50 @@
 [
   {
     "id": "1",
-    "title": "The Bronx",
-    "time": "2016-01-02",
+    "title": "2016-01-02 The Bronx",
+    "description": "肥熊又馋嘴啦",
     "center": [
-      55.569338,
-      33.101266
+      25.569338,
+      3.101266
     ],
     "zoom": 6.21,
-    "image": "assets/photos/dolphin.jpg",
-    "icon": "assets/icons/tiger.png"
+    "image": "test-h.jpg",
+    "icon": "koala",
+    "duration": 4,
+    "dir": "h",
+    "side": "left",
+    "pos": "top"
   },
   {
     "id": "2",
-    "title": "Brooklyn",
-    "time": "2017-01-02",
+    "title": "2017-01-02 Brooklyn",
+    "description": "肥熊真可爱",
     "center": [
-      73.503834,
-      31.425754
+      43.503834,
+      1.425754
     ],
     "zoom": 7.68,
-    "image": "assets/photos/tiger.jpg",
-    "icon": "assets/icons/tiger.png"
+    "image": "test-h.jpg",
+    "icon": "tiger",
+    "duration": 6,
+    "dir": "h",
+    "side": "right",
+    "pos": "middle"
   },
   {
     "id": "3",
-    "title": "Manhattan",
-    "time": "2018-01-02",
+    "title": "2018-01-02 Manhattan",
+    "description": "肥熊胖嘟嘟",
     "center": [
-      31.342502,
-      31.969163
+      51.342502,
+      1.969163
     ],
     "zoom": 5.5,
-    "image": "assets/photos/koala.jpg",
-    "icon": "assets/icons/koala.png"
+    "image": "test-v.jpg",
+    "icon": "heart",
+    "duration": 4,
+    "dir": "v",
+    "side": "left",
+    "pos": "bottom"
   }
 ]
