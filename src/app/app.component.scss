@@ -83,8 +83,6 @@
 .img-frame-v {
   @extend %img-frame;
   width: 125%;
-  //left: -webkit-calc(-75px * #{$scale_photo});
-  //top: -webkit-calc(-60px * #{$scale_photo});
   left: -15%;
   top: -7.5%;
 }
@@ -92,8 +90,6 @@
 .img-frame-h {
   @extend %img-frame;
   width: 118%;
-  //left: -webkit-calc(-75px * #{$scale_photo});
-  //top: -webkit-calc(-60px * #{$scale_photo});
   left: -9%;
   top: -12%;
 }
@@ -182,7 +178,7 @@
   background: rgba(#000000, 0.3);
   opacity: 0;
   padding-left: 10px;
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 @keyframes slidefromleft {
@@ -196,17 +192,14 @@
 }
 
 .pos-top {
-  //top: -webkit-calc(85px * #{$scale_photo});
   top: 15%;
 }
 
 .pos-middle {
-  //top: -webkit-calc(320px * #{$scale_photo});
   top: 65%;
 }
 
 .pos-bottom {
-  //top: -webkit-calc(570px * #{$scale_photo});
   top: 80%;
 }
 
@@ -220,6 +213,7 @@
 }
 
 #datasource {
+  display: none;  /* temporary disable */
   background: transparent url('../assets/icons/btn-tiger.png') center;
   background-size: cover;
   -webkit-transform: scale(-$scale_btn, $scale_btn);
